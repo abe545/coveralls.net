@@ -21,7 +21,7 @@ namespace csmacnz.Coveralls.Tests
             Assert.Equal("D/path/to/file/file.ts", results.First().Name);
             Assert.Equal(36, results.First().Coverage[0]);
             Assert.Equal(10, results.Last().Coverage[5]);
-            Assert.Equal(null, results.First().Coverage[7]);
+            Assert.Null(results.First().Coverage[7]);
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace csmacnz.Coveralls.Tests
             Assert.Equal("/file/file.ts", results.First().Name);
             Assert.Equal(36, results.First().Coverage[0]);
             Assert.Equal(10, results.First().Coverage[5]);
-            Assert.Equal(null, results.First().Coverage[7]);
+            Assert.Null(results.First().Coverage[7]);
         }
 
         private ChutzpahJsonParser CreateChutzpahParser(string basePath = null)
