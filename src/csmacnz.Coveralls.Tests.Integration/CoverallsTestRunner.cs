@@ -8,7 +8,7 @@ namespace csmacnz.Coveralls.Tests.Integration
 {
     public static class CoverallsTestRunner
     {
-        private const string CoverallsExe = "csmacnz.Coveralls.exe";
+        private const string CoverallsExe = "csmacnz.Coveralls.dll";
 
         public static CoverageRunResults RunCoveralls(string arguments)
         {
@@ -20,6 +20,11 @@ namespace csmacnz.Coveralls.Tests.Integration
                 fileNameToUse = GetMonoPath();
 
                 argumentsToUse = exePath + " " + arguments;
+            }
+            else
+            {
+                fileNameToUse = "dotnet";
+                argumentsToUse = $"{exePath} {arguments}";
             }
 
             var process = new Process();
@@ -81,7 +86,9 @@ namespace csmacnz.Coveralls.Tests.Integration
 #else
             var configuration = "Release";
 #endif
-            return Path.Combine("..", "..", "..", "csmacnz.Coveralls", "bin", configuration);
+            return Path.Combine(
+                Path.GetDirectoryName(typeof(CoverallsTestRunner).Assembly.Location),
+                "..", "..", "..", "..", "csmacnz.Coveralls", "bin", configuration, "netcoreapp2.0");
         }
     }
 }
