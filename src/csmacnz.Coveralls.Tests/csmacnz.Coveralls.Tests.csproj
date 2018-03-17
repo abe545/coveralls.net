@@ -11,6 +11,7 @@
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.assert" Version="2.3.1" />
     <PackageReference Include="xunit.runner.console" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <ProjectReference Include="..\csmacnz.Coveralls\csmacnz.Coveralls.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -20,5 +21,8 @@
     <EmbeddedResource Include="SingleFileReportOneLineUncovered.xml" />
     <EmbeddedResource Include="SingleFileReportSourceFile.txt" />
     <EmbeddedResource Include="ChutzpahExample.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
 </Project>
